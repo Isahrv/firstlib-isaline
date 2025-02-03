@@ -1,9 +1,9 @@
 Package: firstlib
-Title: What the Package Does (One Line, Title Case)
+Title: Statistiques sur les élus des villes/départements français
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Isaline", "Hervé", email = "isaline.herve@gmail.com", role = c("aut", "cre"))
+Description: Permet d'obtenir des statistiques sur les élus des villes/départements français, telles que le nombre d'élu par commune, le nom de l'élu le plus agé par département, etc.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
@@ -12,6 +12,10 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
 LazyData: true
+Imports: 
+    dplyr,
+    lubridate,
+    stringr
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
