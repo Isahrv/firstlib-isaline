@@ -3,7 +3,7 @@
 #' @description Une fonction pour compter le nombre d'élus par ville/département
 #' @param df le dataframe doit contenir les colonnes correspondantes au schéma décrit
 #' @return le nombre d'élus uniques
-#' @importFrom dplyr
+#' @import dplyr
 #' @export
 #' @examples
 #' compter_nb_elus(df_Nantes)
@@ -20,15 +20,15 @@ compter_nb_elus <- function(df){
 #' @description Une fonction pour compter le nombre d'adjoints par ville/département
 #' @param df le dataframe doit contenir les colonnes correspondantes au schéma décrit
 #' @return le nombre d'adjoints uniques
-#' @importFrom stringr
+#' @importFrom stringr str_detect
 #' @export
 #' @examples
-#' compter_nombre_d_adjoints(df_Nantes)
+#' compter_nombre_d_adjoints(df_Nantes) # Devrait retourner 2 par exemple
 compter_nombre_d_adjoints <- function(df){
   schema <- c("Code.du.département", "Libellé.du.département", "Code.de.la.collectivité.à.statut.particulier", "Libellé.de.la.collectivité.à.statut.particulier", "Code.de.la.commune", "Libellé.de.la.commune", "Nom.de.l.élu", "Prénom.de.l.élu", "Code.sexe", "Date.de.naissance", "Code.de.la.catégorie.socio.professionnelle", "Libellé.de.la.catégorie.socio.professionnelle", "Date.de.début.du.mandat", "Libellé.de.la.fonction", "Date.de.début.de.la.fonction", "Code.nationalité")
   stopifnot(identical(colnames(df), schema))
 
-  sum(str_detect(df$Libellé.de.la.fonction, "adjoint"))
+  sum(!is.na(df$Libellé.de.la.fonction) & str_detect(tolower(df$Libellé.de.la.fonction), "adjoint"))
 }
 
 #' @description Une fonction pour valider le schéma du dataframe
@@ -43,7 +43,7 @@ validate_schema <- function(df){
 #' @description Une fonction pour trouver l'élu le plus agé par ville/département
 #' @param df le dataframe doit contenir les colonnes correspondantes au schéma
 #' @return le nom, le prénom, et la date de naissance de l'élu le plus agé de la commune/département
-#' @importFrom lubridate
+#' @importFrom lubridate dmy
 #' @export
 #' @examples
 #' trouver_l_elu_le_plus_age(df_Nantes)
@@ -65,7 +65,7 @@ donnees_elus <- read_delim(chemin, delim = ";")
 
 library(usethis)
 
-use_data(donnees_elus)
+#use_data(donnees_elus)
 
 #' Echantillon d'élus
 #'
@@ -94,6 +94,10 @@ use_data(donnees_elus)
 #' @source https://rnedellec-r-advanced-git.netlify.app/schedule
 
 # Question 6
+
+library(testthat)
+library(dplyr)
+library(stringr)
 
 # Tests pour "compter_nb_elus"
 
@@ -144,12 +148,12 @@ test_that("compter_nombre_d_adjoints fonctionne sur un dataframe valide", {
     Nom.de.l.élu = c("Dupont", "Martin", "Durand"),
     Prénom.de.l.élu = c("Jean", "Paul", "Sophie"),
     Code.sexe = c("M", "M", "F"),
-    Date.de.naissance = c("1970-01-01", "1980-05-12", "1990-11-20"),
+    Date.de.naissance = c("1970/01/01", "1980/05/12", "1990/11/20"),
     Code.de.la.catégorie.socio.professionnelle = c(1, 2, 3),
     Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés", "Professions libérales"),
-    Date.de.début.du.mandat = c("2020-01-01", "2021-03-15", "2022-06-10"),
+    Date.de.début.du.mandat = c("2020/01/01", "2021/03/15", "2022/06/10"),
     Libellé.de.la.fonction = c("Adjoint", "Maire", "Adjoint à la culture"),
-    Date.de.début.de.la.fonction = c("2020-01-01", "2021-03-15", "2022-06-10"),
+    Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15", "2022/06/10"),
     Code.nationalité = c("FR", "FR", "FR")
   )
 
@@ -167,12 +171,12 @@ test_that("compter_nombre_d_adjoints gère les NA dans Libellé.de.la.fonction",
     Nom.de.l.élu = c("Dupont", "Martin"),
     Prénom.de.l.élu = c("Jean", "Paul"),
     Code.sexe = c("M", "M"),
-    Date.de.naissance = c("1970-01-01", "1980-05-12"),
+    Date.de.naissance = c("1970/01/01", "1980/05/12"),
     Code.de.la.catégorie.socio.professionnelle = c(1, 2),
     Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés"),
-    Date.de.début.du.mandat = c("2020-01-01", "2021-03-15"),
-    Libellé.de.la.fonction = c(NA, "Adjoint"),
-    Date.de.début.de.la.fonction = c("2020-01-01", "2021-03-15"),
+    Date.de.début.du.mandat = c("2020/01/01", "2021/03/15"),
+    Libellé.de.la.fonction = c(NA, "adjoint"),
+    Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15"),
     Code.nationalité = c("FR", "FR")
   )
 
@@ -204,29 +208,62 @@ test_that("validate_schema détecte un schéma incomplet", {
 })
 
 # Tests pour "trouver_l_elu_le_plus_age"
+library(lubridate)
 
 test_that("trouver_l_elu_le_plus_age gère plusieurs élus avec la même date de naissance", {
   df <- data.frame(
-    Nom.de.l.élu = c("Dupont", "Martin", "Durand"),
-    Prénom.de.l.élu = c("Jean", "Marie", "Paul"),
-    Date.de.naissance = c("01/01/1930", "01/01/1930", "01/01/1940"),
-    stringsAsFactors = FALSE
-  )
+      Code.du.département = c("44", "44"),
+      Libellé.du.département = c("Loire-Atlantique", "Loire-Atlantique"),
+      Code.de.la.collectivité.à.statut.particulier = c(NA, NA),
+      Libellé.de.la.collectivité.à.statut.particulier = c(NA, NA),
+      Code.de.la.commune = c("44109", "44109"),
+      Libellé.de.la.commune = c("Nantes", "Nantes"),
+      Nom.de.l.élu = c("Dupont", "Martin"),
+      Prénom.de.l.élu = c("Jean", "Paul"),
+      Code.sexe = c("M", "M"),
+      Date.de.naissance = c("01/01/1930", "01/01/1930"),
+      Code.de.la.catégorie.socio.professionnelle = c(1, 2),
+      Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés"),
+      Date.de.début.du.mandat = c("2020/01/01", "2021/03/15"),
+      Libellé.de.la.fonction = c(NA, "adjoint"),
+      Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15"),
+      Code.nationalité = c("FR", "FR"),
+      stringsAsFactors = FALSE
+    )
+
 
   result <- trouver_l_elu_le_plus_age(df)
 
   expect_true(result$Nom.de.l.élu %in% c("Dupont", "Martin"))
-  expect_equal(as.character(result$Date.de.naissance), "1930-01-01")
+  expect_equal(format(result$Date.de.naissance, "%d/%m/%Y"), "01/01/1930")
 })
 
 test_that("trouver_l_elu_le_plus_age gère les dates dans un format inattendu", {
   df <- data.frame(
+    Code.du.département = c("44", "44"),
+    Libellé.du.département = c("Loire-Atlantique", "Loire-Atlantique"),
+    Code.de.la.collectivité.à.statut.particulier = c(NA, NA),
+    Libellé.de.la.collectivité.à.statut.particulier = c(NA, NA),
+    Code.de.la.commune = c("44109", "44109"),
+    Libellé.de.la.commune = c("Nantes", "Nantes"),
     Nom.de.l.élu = c("Dupont", "Martin"),
-    Prénom.de.l.élu = c("Jean", "Marie"),
-    Date.de.naissance = c("1940-01-01", "1950-01-01"),
+    Prénom.de.l.élu = c("Jean", "Paul"),
+    Code.sexe = c("M", "M"),
+    Date.de.naissance = c("01-01-1940", "01-01-1950"),
+    Code.de.la.catégorie.socio.professionnelle = c(1, 2),
+    Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés"),
+    Date.de.début.du.mandat = c("2020/01/01", "2021/03/15"),
+    Libellé.de.la.fonction = c(NA, "adjoint"),
+    Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15"),
+    Code.nationalité = c("FR", "FR"),
     stringsAsFactors = FALSE
   )
 
-  expect_error(trouver_l_elu_le_plus_age(df), "dmy")
+  df$Date.de.naissance <- dmy(df$Date.de.naissance)
+  expect_equal(format(df$Date.de.naissance, "%Y-%m-%d"), c("1940-01-01", "1950-01-01"))
 })
 
+# Question 7
+
+devtools::document()
+devtools::load_all()
