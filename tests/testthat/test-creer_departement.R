@@ -1,13 +1,13 @@
 # Test 1
 
-test_that("summary.departement retourne les informations correctes", {
-  df <- data.frame(
+test_that("creer_departement crée un objet de classe 'departement'", {
+  df_departement <- data.frame(
     Code.du.département = c("44", "44"),
     Libellé.du.département = c("Loire-Atlantique", "Loire-Atlantique"),
     Code.de.la.collectivité.à.statut.particulier = c(NA, NA),
     Libellé.de.la.collectivité.à.statut.particulier = c(NA, NA),
     Code.de.la.commune = c("44109", "44109"),
-    Libellé.de.la.commune = c("Nantes", "Rezé"),
+    Libellé.de.la.commune = c("Nantes", "Nantes"),
     Nom.de.l.élu = c("Haouache", "Loas"),
     Prénom.de.l.élu = c("Zahia", "Lucie"),
     Code.sexe = c("F", "F"),
@@ -19,21 +19,20 @@ test_that("summary.departement retourne les informations correctes", {
     Date.de.début.de.la.fonction = c("03/01/2020", "01/06/2022"),
     Code.nationalité = c("FR", "FR")
   )
-
-  expect_output(summary.departement(df), "Nom du département : Loire-Atlantique")
-  expect_output(summary.departement(df), "Nombre de commune : 2")
-  })
+  departement <- creer_departement(df_departement)
+  expect_s3_class(departement, "departement")
+})
 
 # Test 2
 
-test_that("summary.departement gère des NA dans le libellé du département", {
-  df <- data.frame(
+test_that("la classe d'origine est préservée", {
+  df_departement <- data.frame(
     Code.du.département = c("44", "44"),
-    Libellé.du.département = c(NA, "Loire-Atlantique"),
+    Libellé.du.département = c("Loire-Atlantique", "Loire-Atlantique"),
     Code.de.la.collectivité.à.statut.particulier = c(NA, NA),
     Libellé.de.la.collectivité.à.statut.particulier = c(NA, NA),
     Code.de.la.commune = c("44109", "44109"),
-    Libellé.de.la.commune = c("Nantes", "Rezé"),
+    Libellé.de.la.commune = c("Nantes", "Nantes"),
     Nom.de.l.élu = c("Haouache", "Loas"),
     Prénom.de.l.élu = c("Zahia", "Lucie"),
     Code.sexe = c("F", "F"),
@@ -45,7 +44,7 @@ test_that("summary.departement gère des NA dans le libellé du département", {
     Date.de.début.de.la.fonction = c("03/01/2020", "01/06/2022"),
     Code.nationalité = c("FR", "FR")
   )
-
-  expect_output(summary.departement(df), "Nom du département : Loire-Atlantique")
-  expect_output(summary.departement(df), "Nombre de commune : 2")
+  class(df_departement) <- "data.frame"
+  departement <- creer_departement(df_departement)
+  expect_equal(class(departement), c("departement", "data.frame"))
 })
