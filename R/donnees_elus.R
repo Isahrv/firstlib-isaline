@@ -1,9 +1,9 @@
 #' Echantillon d'élus
 #'
-#' Tableau contenant un échantillon de 9753 élus des communes françaises
+#' Tableau contenant les élus des communes françaises
 #'
 #' @format
-#' Un data frame avec 9753 lignes et 16 colonnes:
+#' Un data frame avec 489 972 lignes et 16 colonnes:
 #' \describe{
 #'   \item{Code du département}{code du département}
 #'   \item{Libellé du département}{nom du département}
@@ -22,4 +22,4 @@
 #'   \item{Date de début de la fonction}{date de début de la fonction au format "jj/mm/aaaa"}
 #'   \item{Code nationalité}{code indiquant la nationalité de l'élu ("FR" s'il est français)}
 #' }
-#' @source https://rnedellec-r-advanced-git.netlify.app/schedule
+#' @source https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a

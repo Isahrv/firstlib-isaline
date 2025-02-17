@@ -10,7 +10,7 @@ trouver_l_elu_le_plus_age(df)
 \item{df}{le dataframe doit contenir les colonnes correspondantes au schéma}
 }
 \value{
-le nom, le prénom, et la date de naissance de l'élu le plus agé de la commune/département
+le nom, le prénom, et l'âge de l'élu le plus agé de la commune/département
 }
 \description{
 Une fonction pour trouver l'élu le plus agé dans une ville/département

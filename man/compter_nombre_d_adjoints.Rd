@@ -16,5 +16,5 @@ le nombre d'adjoints uniques
 Une fonction pour compter le nombre d'adjoints uniques par ville/département
 }
 \examples{
-compter_nombre_d_adjoints(df_Nantes) # Devrait retourner 2 par exemple
+compter_nombre_d_adjoints(df_Nantes) # Devrait retourner 26
 }

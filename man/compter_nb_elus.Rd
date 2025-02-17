@@ -17,4 +17,5 @@ Une fonction pour compter le nombre d'élus uniques par ville/département
 }
 \examples{
 compter_nb_elus(df_Nantes)
+66
 }
