@@ -6,9 +6,9 @@
 #' @importFrom stringr str_detect
 #' @examples
 #' compter_nombre_d_adjoints(df_Nantes) # Devrait retourner 26
-compter_nombre_d_adjoints <- function(df){
+compter_nombre_d_adjoints <- function(df) {
   # Cette fonction prend un dataframe correspondant au schéma de validate_schema() en entrée et retourne le nombre d'adjoints par départements ou communes.
   validate_schema(df)
 
-  sum(str_detect(df$Libellé.de.la.fonction, "adjoint"))
+  sum(stringr::str_detect(tidyr::replace_na(stringr::str_to_lower(df$Libellé.de.la.fonction), ""), "adjoint"))
 }

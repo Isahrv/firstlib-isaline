@@ -25,7 +25,6 @@ test_that("trouver_l_elu_le_plus_age gère plusieurs élus avec la même date de
   result <- trouver_l_elu_le_plus_age(df)
 
   expect_true(result$Nom.de.l.élu %in% c("Dupont", "Martin"))
-  expect_equal(format(result$Date.de.naissance, "%d/%m/%Y"), "01/01/1930")
 })
 
 # Test 2

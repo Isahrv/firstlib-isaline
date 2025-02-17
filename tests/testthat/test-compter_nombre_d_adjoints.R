@@ -1,6 +1,6 @@
 # Test 1
 
-test_that("compter_nombre_d_adjoints fonctionne sur un dataframe valide", {
+test_that("compter_nombre_d_adjoints est insensible à la casse", {
   df <- data.frame(
     Code.du.département = c("44", "44", "44"),
     Libellé.du.département = c("Loire-Atlantique", "Loire-Atlantique", "Loire-Atlantique"),
@@ -15,7 +15,7 @@ test_that("compter_nombre_d_adjoints fonctionne sur un dataframe valide", {
     Code.de.la.catégorie.socio.professionnelle = c(1, 2, 3),
     Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés", "Professions libérales"),
     Date.de.début.du.mandat = c("2020/01/01", "2021/03/15", "2022/06/10"),
-    Libellé.de.la.fonction = c("Adjoint", "Maire", "Adjoint à la culture"),
+    Libellé.de.la.fonction = c("Adjoint", "Maire", "adjoint à la culture"),
     Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15", "2022/06/10"),
     Code.nationalité = c("FR", "FR", "FR")
   )
@@ -40,7 +40,7 @@ test_that("compter_nombre_d_adjoints gère les NA dans Libellé.de.la.fonction",
     Code.de.la.catégorie.socio.professionnelle = c(1, 2),
     Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Employés"),
     Date.de.début.du.mandat = c("2020/01/01", "2021/03/15"),
-    Libellé.de.la.fonction = c(NA, "adjoint"),
+    Libellé.de.la.fonction = c(NA, "Adjoint"),
     Date.de.début.de.la.fonction = c("2020/01/01", "2021/03/15"),
     Code.nationalité = c("FR", "FR")
   )

@@ -11,12 +11,12 @@ test_that("compter_nb_elus ignore les doublons correctement", {
     Nom.de.l.élu = c("Dupont", "Dupont"),
     Prénom.de.l.élu = c("Jean", "Jean"),
     Code.sexe = c("M", "M"),
-    Date.de.naissance = c("1970-01-01", "1970-01-01"),
+    Date.de.naissance = c("01/01/1970", "01/01/1970"),
     Code.de.la.catégorie.socio.professionnelle = c(1, 1),
     Libellé.de.la.catégorie.socio.professionnelle = c("Cadres", "Cadres"),
-    Date.de.début.du.mandat = c("2020-01-01", "2020-01-01"),
+    Date.de.début.du.mandat = c("01/01/2020", "01/01/2020"),
     Libellé.de.la.fonction = c("Maire", "Maire"),
-    Date.de.début.de.la.fonction = c("2020-01-01", "2020-01-01"),
+    Date.de.début.de.la.fonction = c("01/01/2020", "01/01/2020"),
     Code.nationalité = c("FR", "FR")
   )
 

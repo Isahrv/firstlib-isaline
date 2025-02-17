@@ -7,7 +7,7 @@
 #' @import lubridate
 #' @export
 summary.departement <- function(x) {
-  # Cette fonction prend un dataframe de classe "departement", correspondant au schéma de validate_schema(), en entrée et retourne un résumé d'informations sur un département.
+  # Cette fonction prend un dataframe de classe "departement", en entrée et retourne un résumé d'informations sur un département.
   print(paste("Nom du département :", unique(x$Libellé.du.département)))
   print(paste("Nombre de commune :", compter_nb_commune(x)))
   print(paste("Nombre d'élus dans le département :", compter_nb_elus(x)))
