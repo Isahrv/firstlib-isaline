@@ -7,5 +7,5 @@ creer_departement <- function(df) {
   # Cette fonction prend un dataframe correspondant au schéma de validate_schema(), en entrée et ajoute la classe "departement" au dataframe
   validate_schema(df)
   class(df) <- c("departement", class(df))
-  return(class(df))
+  return(df)
 }
