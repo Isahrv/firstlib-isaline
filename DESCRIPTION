@@ -1,6 +1,6 @@
 Package: firstlib
 Title: Statistiques sur les élus des villes/départements français
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Isaline", "Hervé", email = "isaline.herve@gmail.com", role = c("aut", "cre"))
 Description: Permet d'obtenir des statistiques sur les élus des villes/départements français, telles que le nombre d'élu par commune, le nom de l'élu le plus agé par département, etc.
