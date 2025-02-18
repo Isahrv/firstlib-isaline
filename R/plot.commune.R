@@ -6,15 +6,15 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-plot.commune <- function(df) {
+plot.commune <- function(x) {
   # Cette fonction prend un dataframe de classe "commune", correspondant au schéma de validate_schema(), en entrée et retourne un graphique montrant la distribution d'élus par rapport aux codes professionnels.
-  validate_schema(df)
+  validate_schema(x)
 
-  df_counts <- df |>
+  df_counts <- x |>
     count(Code.de.la.catégorie.socio.professionnelle, name = "Nombre")
 
-  nom_commune <- unique(df$Libellé.de.la.commune)
-  nom_departement <- unique(df$Libellé.du.département)
+  nom_commune <- unique(x$Libellé.de.la.commune)
+  nom_departement <- unique(x$Libellé.du.département)
   nb_elus <- sum(df_counts$Nombre)
 
   titre_graphique <- paste(nom_commune, "-", nom_departement)

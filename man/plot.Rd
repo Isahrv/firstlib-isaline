@@ -8,9 +8,9 @@
 \usage{
 plot(df)
 
-\method{plot}{commune}(df)
+\method{plot}{commune}(x)
 
-\method{plot}{departement}(df)
+\method{plot}{departement}(x)
 }
 \arguments{
 \item{df}{Un dataframe avec les données nécessaires pour le graphique}

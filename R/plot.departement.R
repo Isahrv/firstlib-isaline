@@ -6,17 +6,17 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-plot.departement <- function(df) {
+plot.departement <- function(x) {
   # Cette fonction prend un dataframe de classe "departement", correspondant au schéma de validate_schema(), en entrée et retourne un graphique montrant la distribution d'élus par rapport aux 10 codes professionnels les plus représentés dans le département.
-  validate_schema(df)
+  validate_schema(x)
 
-  df_counts <- df |>
+  df_counts <- x |>
     count(Code.de.la.catégorie.socio.professionnelle, name = "Nombre") |>
     arrange(desc(Nombre)) |>
     slice_head(n = 10)
 
-  nom_departement <- unique(df$Libellé.du.département)
-  nb_communes <- length(unique(df$Libellé.de.la.commune))
+  nom_departement <- unique(x$Libellé.du.département)
+  nb_communes <- length(unique(x$Libellé.de.la.commune))
 
   titre_graphique <- paste(nom_departement, "-", nb_communes, "communes")
   axe_x_label <- paste("Libellés des 10 codes professionnels les plus représentés pour", nom_departement)
