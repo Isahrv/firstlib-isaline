@@ -7,5 +7,5 @@ creer_commune <- function(df) {
   # Cette fonction prend un dataframe correspondant au schéma de validate_schema(), en entrée et ajoute la classe "commune" au dataframe
   validate_schema(df)
   class(df) <- c("commune", class(df))
-  return(df)
+  return(class(df))
 }
