@@ -33,13 +33,17 @@ Le package `firstlib` permet d’analyser des données municipales sur des élus
 
 ```{r}
 # Chargement des données municipales disponibles sur le package
-firstlib::donnees_elus
+donnees_elus <- firstlib::donnees_elus
+colnames(donnees_elus) <- make.names(colnames(donnees_elus))
+
+str(donnees_elus)
+names(donnees_elus)
 
 # Création du dataframe de la commune de Nantes
-df_Nantes <- subset(donnees_elus, Libellé.de.la.commune == "Nantes")
+df_Nantes <- donnees_elus[donnees_elus$Libellé.de.la.commune == "Nantes",]
 
 # Création du dataframe du département de la Loire-Atlantique
-df_Loire_Atlantique <- subset(donnees_elus, Libellé.du.département == "Loire-Atlantique")
+df_Loire_Atlantique <- donnees_elus[donnees_elus$Libellé.du.département == "Loire-Atlantique",]
 
 # Affectation des classes `commune` et `departement` respectives à chaque dataframe
 library(firstlib)
@@ -66,7 +70,6 @@ summary(df_Nantes)
 De la même façon que pour la fonction `summary.commune()`, voici comment utiliser `summary.departement()` :
 
 ```{r}
-library(firstlib)
 # Pour un dataframe contenant les données d'un département :
 summary(df_Loire_Atlantique)  
 ```
@@ -78,7 +81,6 @@ Ensuite, avec la fonction `generer_rapport()`, il est possible de sortir un rapp
 Voici comment utiliser cette fonction : 
 
 ```{r}
-library(firstlib)
 generer_rapport(commune = "44", departement = "44109", output = "rapport_nantes.html")
 ```
 
