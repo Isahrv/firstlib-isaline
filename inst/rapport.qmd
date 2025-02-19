@@ -1,0 +1,53 @@
+---
+title: "rapport"
+format: html
+editor: visual
+author: Isaline Hervé
+params:
+  code_commune: "44109"
+  code_departement: "44"
+output: html_document
+---
+
+# 3
+## Installation de firstlib
+```{r}
+#remotes::install_github("Isahrv/firstlib-isaline")
+library(firstlib)
+```
+
+## Import des données
+```{r}
+library(readr)
+df <- read.table("~/cours/M1 ECAP/S2/R avancé & Git/data/elus-conseillers-municipaux-cm.csv", header = TRUE, sep = ";", quote = "")
+df_Nantes <- df[df$Libellé.de.la.commune == "Nantes",]
+df_Loire_Atlantique <- df[df$Libellé.du.département == "Loire-Atlantique",]
+```
+
+## Test fonctions génériques pour commune
+```{r}
+# ajout de la class
+df_Nantes <- creer_commune(df_Nantes)
+
+# vérification
+print(class(df_Nantes))
+
+# tests fonctions génériques
+summary(df_Nantes)
+plot(df_Nantes)
+```
+
+## Test fonctions génériques pour departement
+```{r}
+# ajout de la class
+df_Loire_Atlantique <- creer_departement(df_Loire_Atlantique)
+
+# vérification
+print(class(df_Loire_Atlantique))
+
+# tests fonctions génériques
+summary(df_Loire_Atlantique)
+plot(df_Loire_Atlantique)
+```
+
+# 4
