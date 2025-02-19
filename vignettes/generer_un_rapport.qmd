@@ -1,0 +1,84 @@
+---
+title: "Générer un rapport d'analyses"
+output: rmarkdown::html_vignette
+format: 
+  html:
+    toc: true
+    html-math-method: mathjax
+vignette: >
+  %\VignetteIndexEntry{Générer un rapport d'analyses}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+execute:
+  echo: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(firstlib)
+```
+
+# Introduction
+
+Le package `firstlib` permet d’analyser des données municipales sur des élus, et ce pour des communes ou des départements choisis. Pour ce faire, nous retrouvons des fonctions telles que `summary.commune` ou
+`summary.departement`. Cette librarie permet également de générer un rapport Quarto, avec la fonction `generer_rapport`.
+
+## Chargement des données nécessaires pour les exemples
+
+```{r}
+# Chargement des données municipales disponibles sur le package
+firstlib::donnees_elus
+
+# Création du dataframe de la commune de Nantes
+df_Nantes <- subset(donnees_elus, Libellé.de.la.commune == "Nantes")
+
+# Création du dataframe du département de la Loire-Atlantique
+df_Loire_Atlantique <- subset(donnees_elus, Libellé.du.département == "Loire-Atlantique")
+
+# Affectation des classes `commune` et `departement` respectives à chaque dataframe
+library(firstlib)
+creer_commune(df_Nantes)
+creer_commune(df_Loire_Atlantique)
+```
+
+# Résumé des communes et départements
+
+La fonction `summary()` est une fonction générique définie pour les classes `commune` et `departement`. Elle permet d'afficher divers informations et de montrer des statistiques sur les données de communes ou de départements, qui seront alors différents en fonction de la classe de l'objet. 
+
+## Résumé d'une commune
+
+Cette fonction s'utilise de cette manière : 
+
+```{r}
+library(firstlib)
+# Pour un dataframe contenant les données d'une commune :
+summary(df_Nantes)  
+```
+
+## Résumé d'un département
+
+De la même façon que pour la fonction `summary.commune()`, voici comment utiliser `summary.departement()` :
+
+```{r}
+library(firstlib)
+# Pour un dataframe contenant les données d'un département :
+summary(df_Loire_Atlantique)  
+```
+
+# Générer un rapport
+
+Ensuite, avec la fonction `generer_rapport()`, il est possible de sortir un rapport Quarto au format `html`. Ce rapport détaillera...
+
+Voici comment utiliser cette fonction : 
+
+```{r}
+library(firstlib)
+generer_rapport(commune = "44", departement = "44109", output = "rapport_nantes.html")
+```
+
