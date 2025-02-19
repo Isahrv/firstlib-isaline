@@ -3,3 +3,7 @@
 ^vignettes/generer_un_rapport\.Rmd$
 ^doc$
 ^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

@@ -1,3 +1,5 @@
 *.html
 *.R
 generer_un_rapport.Rmd
+
+/.quarto/
