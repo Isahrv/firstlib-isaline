@@ -1,5 +1,6 @@
 #' Fonction pour réer un objet de classe "commune"
 #'
+#' @description Une fonction qui ajoute la classe "commune" à un dataframe
 #' @param df Un dataframe avec les informations d'une commune
 #' @return Un objet de classe "commune"
 #' @export

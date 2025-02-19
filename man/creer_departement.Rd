@@ -13,5 +13,5 @@ creer_departement(df)
 Un objet de classe "departement"
 }
 \description{
-Fonction pour réer un objet de classe "departement"
+Une fonction qui ajoute la classe "departement" à un dataframe
 }

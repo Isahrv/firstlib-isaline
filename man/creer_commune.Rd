@@ -13,5 +13,5 @@ creer_commune(df)
 Un objet de classe "commune"
 }
 \description{
-Fonction pour réer un objet de classe "commune"
+Une fonction qui ajoute la classe "commune" à un dataframe
 }

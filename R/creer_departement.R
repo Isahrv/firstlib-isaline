@@ -1,5 +1,6 @@
 #' Fonction pour réer un objet de classe "departement"
 #'
+#' @description Une fonction qui ajoute la classe "departement" à un dataframe
 #' @param df Un dataframe avec les informations d'un département
 #' @return Un objet de classe "departement"
 #' @export
