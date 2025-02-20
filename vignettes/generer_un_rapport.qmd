@@ -26,6 +26,7 @@ library(firstlib)
 
 # Introduction
 
+
 Le package `firstlib` permet d’analyser des données municipales sur des élus, et ce pour des communes ou des départements choisis. Pour ce faire, nous retrouvons des fonctions telles que `summary.commune` ou
 `summary.departement`. Cette librarie permet également de générer un rapport Quarto, avec la fonction `generer_rapport`.
 
