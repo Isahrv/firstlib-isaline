@@ -8,7 +8,7 @@
 #' @export
 summary.commune <- function(x) {
   # Cette fonction prend un dataframe de classe "commune", correspondant au schéma de validate_schema(), en entrée et retourne un résumé d'informations sur une commune.
-  print(paste("Libellé de la commune :", unique(x$Libellé.de.la.commune)))
+  print(paste("Libellé de la commune :", unique(x$Libellé_de_la_commune)))
   print(paste("Nombre d'élus dans la commune :", compter_nb_elus(x)))
   print("Distribution de l'âge des élus de la commune :")
   print(calcul_distribution_age(x))

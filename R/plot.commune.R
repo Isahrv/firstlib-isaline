@@ -11,16 +11,16 @@ plot.commune <- function(x) {
   validate_schema(x)
 
   df_counts <- x |>
-    count(Code.de.la.catégorie.socio.professionnelle, name = "Nombre")
+    count(Code_de_la_catégorie_socio_professionnelle, name = "Nombre")
 
-  nom_commune <- unique(x$Libellé.de.la.commune)
-  nom_departement <- unique(x$Libellé.du.département)
+  nom_commune <- unique(x$Libellé_de_la_commune)
+  nom_departement <- unique(x$Libellé_du_département)
   nb_elus <- sum(df_counts$Nombre)
 
   titre_graphique <- paste(nom_commune, "-", nom_departement)
   axe_x <- paste("Libellés des codes professionnels pour les", nb_elus, "élus")
 
-  bar_chart <- ggplot(df_counts, aes(x = reorder(Code.de.la.catégorie.socio.professionnelle, Nombre), y = Nombre)) +
+  bar_chart <- ggplot(df_counts, aes(x = reorder(Code_de_la_catégorie_socio_professionnelle, Nombre), y = Nombre)) +
     geom_bar(stat = "identity", fill = "royalblue") +
     coord_flip() +
     labs(title = titre_graphique,

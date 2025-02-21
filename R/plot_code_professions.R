@@ -12,9 +12,9 @@ plot_code_professions <- function(df) {
   validate_schema(df)
 
   df_counts <- df |>
-    count(Code.de.la.catégorie.socio.professionnelle, name = "Nombre")
+    count(Code_de_la_catégorie_socio_professionnelle, name = "Nombre")
 
-  bar_chart <- ggplot(df_counts, aes(x = reorder(Code.de.la.catégorie.socio.professionnelle, Nombre), y = Nombre)) +
+  bar_chart <- ggplot(df_counts, aes(x = reorder(Code_de_la_catégorie_socio_professionnelle, Nombre), y = Nombre)) +
     geom_bar(stat = "identity", fill = "royalblue") +
     coord_flip() +
     labs(title = "Nombre d'élus par code professionnel",

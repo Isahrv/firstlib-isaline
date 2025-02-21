@@ -11,17 +11,17 @@ plot.departement <- function(x) {
   validate_schema(x)
 
   df_counts <- x |>
-    count(Code.de.la.catégorie.socio.professionnelle, name = "Nombre") |>
+    count(Code_de_la_catégorie_socio_professionnelle, name = "Nombre") |>
     arrange(desc(Nombre)) |>
     slice_head(n = 10)
 
-  nom_departement <- unique(x$Libellé.du.département)
-  nb_communes <- length(unique(x$Libellé.de.la.commune))
+  nom_departement <- unique(x$Libellé_du_département)
+  nb_communes <- length(unique(x$Libellé_de_la_commune))
 
   titre_graphique <- paste(nom_departement, "-", nb_communes, "communes")
   axe_x_label <- paste("Libellés des 10 codes professionnels les plus représentés pour", nom_departement)
 
-  bar_chart <- ggplot(df_counts, aes(x = reorder(Code.de.la.catégorie.socio.professionnelle, Nombre), y = Nombre)) +
+  bar_chart <- ggplot(df_counts, aes(x = reorder(Code_de_la_catégorie_socio_professionnelle, Nombre), y = Nombre)) +
     geom_bar(stat = "identity", fill = "royalblue") +
     coord_flip() +
     labs(title = titre_graphique,

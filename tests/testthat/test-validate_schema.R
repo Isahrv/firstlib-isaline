@@ -1,12 +1,12 @@
 # Test 1
 
 test_that("validate_schema fonctionne avec un schéma valide", {
-  schema <- c("Code.du.département", "Libellé.du.département", "Code.de.la.collectivité.à.statut.particulier",
-              "Libellé.de.la.collectivité.à.statut.particulier", "Code.de.la.commune", "Libellé.de.la.commune",
-              "Nom.de.l.élu", "Prénom.de.l.élu", "Code.sexe", "Date.de.naissance",
-              "Code.de.la.catégorie.socio.professionnelle", "Libellé.de.la.catégorie.socio.professionnelle",
-              "Date.de.début.du.mandat", "Libellé.de.la.fonction", "Date.de.début.de.la.fonction",
-              "Code.nationalité")
+  schema <- c("Code_du_département", "Libellé_du_département", "Code_de_la_collectivité_à_statut_particulier",
+              "Libellé_de_la_collectivité_à_statut_particulier", "Code_de_la_commune", "Libellé_de_la_commune",
+              "Nom_de_l_élu", "Prénom_de_l_élu", "Code_sexe", "Date_de_naissance",
+              "Code_de_la_catégorie_socio_professionnelle", "Libellé_de_la_catégorie_socio_professionnelle",
+              "Date_de_début_du_mandat", "Libellé_de_la_fonction", "Date_de_début_de_la_fonction",
+              "Code_nationalité")
   df <- data.frame(matrix(ncol = length(schema), nrow = 0))
   colnames(df) <- schema
 
@@ -17,8 +17,8 @@ test_that("validate_schema fonctionne avec un schéma valide", {
 
 test_that("validate_schema détecte un schéma incomplet", {
   df <- data.frame(
-    Code.du.département = c("44"),
-    Libellé.du.département = c("Loire-Atlantique")
+    Code_du_département = c("44"),
+    Libellé_du_département = c("Loire-Atlantique")
   )
 
   expect_error(validate_schema(df), "identical")

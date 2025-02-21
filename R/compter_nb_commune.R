@@ -11,7 +11,7 @@ compter_nb_commune <- function(df){
   validate_schema(df)
 
   df |>
-    select(Libellé.de.la.commune) |>
+    select(Libellé_de_la_commune) |>
     distinct() |>
     nrow()
 }

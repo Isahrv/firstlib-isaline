@@ -12,8 +12,8 @@ trouver_l_elu_le_plus_age <- function(df) {
   validate_schema(df)
 
   df |>
-    mutate(Date.de.naissance = dmy(Date.de.naissance)) |>
-    mutate(Age = as.numeric(difftime(Sys.Date(), Date.de.naissance, units = "days")) %/% 365)|>
+    mutate(Date_de_naissance = dmy(Date_de_naissance)) |>
+    mutate(Age = as.numeric(difftime(Sys.Date(), Date_de_naissance, units = "days")) %/% 365)|>
     slice(which.max(Age)) |>
-    select(Nom.de.l.élu, Prénom.de.l.élu, Age)
+    select(Nom_de_l_élu, Prénom_de_l_élu, Age)
 }

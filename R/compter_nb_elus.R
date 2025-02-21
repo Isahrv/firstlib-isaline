@@ -12,7 +12,7 @@ compter_nb_elus <- function(df){
   validate_schema(df)
 
   df |>
-    select(Nom.de.l.élu, Prénom.de.l.élu, Date.de.naissance) |>
+    select(Nom_de_l_élu, Prénom_de_l_élu, Date_de_naissance) |>
     distinct() |>
     nrow()
 }

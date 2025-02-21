@@ -12,8 +12,8 @@ calcul_distribution_age <- function(df) {
   validate_schema(df)
 
   df <- df |>
-    mutate(Date.de.naissance = dmy(Date.de.naissance)) |>
-    mutate(Age = as.numeric(difftime(Sys.Date(), Date.de.naissance, units = "days")) %/% 365)
+    mutate(Date_de_naissance = dmy(Date_de_naissance)) |>
+    mutate(Age = as.numeric(difftime(Sys.Date(), Date_de_naissance, units = "days")) %/% 365)
 
   quantiles <- quantile(df$Age, probs = c(0, 0.25, 0.50, 0.75, 1), na.rm = TRUE)
 

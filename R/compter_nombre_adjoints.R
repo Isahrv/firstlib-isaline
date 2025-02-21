@@ -10,5 +10,5 @@ compter_nombre_d_adjoints <- function(df) {
   # Cette fonction prend un dataframe correspondant au schéma de validate_schema() en entrée et retourne le nombre d'adjoints par départements ou communes.
   validate_schema(df)
 
-  sum(stringr::str_detect(tidyr::replace_na(stringr::str_to_lower(df$Libellé.de.la.fonction), ""), "adjoint"))
+  sum(stringr::str_detect(tidyr::replace_na(stringr::str_to_lower(df$Libellé_de_la_fonction), ""), "adjoint"))
 }
