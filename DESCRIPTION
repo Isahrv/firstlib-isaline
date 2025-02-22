@@ -16,7 +16,8 @@ Imports:
     dplyr,
     lubridate,
     stringr,
-    ggplot2
+    ggplot2,
+    quarto
 Suggests: 
     knitr,
     rmarkdown,
