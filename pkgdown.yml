@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   generer_un_rapport: generer_un_rapport.html
-last_built: 2025-02-22T18:15Z
+last_built: 2025-02-22T22:20Z
 urls:
   reference: https://isahrv.github.io/firstlib-isaline/reference
   article: https://isahrv.github.io/firstlib-isaline/articles
