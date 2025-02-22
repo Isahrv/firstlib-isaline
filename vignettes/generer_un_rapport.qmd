@@ -83,5 +83,5 @@ Pour procéder à cela, les fonctions `summary.departement()`, `summary.commune(
 Voici comment utiliser cette fonction : 
 
 ```{r}
-generer_rapport(commune = "44", departement = "44109", output = "rapport_nantes.html")
+generer_rapport(commune = "44109", departement = "44", output = "rapport_nantes.html")
 ```
