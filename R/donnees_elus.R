@@ -1,6 +1,6 @@
-#' Echantillon d'élus
+#' Données sur les élus municipaux
 #'
-#' Tableau contenant les élus des communes françaises
+#' @description Tableau contenant les élus des communes françaises
 #'
 #' @format
 #' Un data frame avec 489 972 lignes et 16 colonnes:
@@ -23,3 +23,8 @@
 #'   \item{Code_nationalité}{code indiquant la nationalité de l'élu ("FR" s'il est français)}
 #' }
 #' @source https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a
+#'
+#' @usage data(donnees_elus)
+#'
+#' @keywords datasets
+"donnees_elus"
