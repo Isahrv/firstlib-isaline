@@ -26,7 +26,6 @@ library(firstlib)
 
 # Introduction
 
-
 Le package `firstlib` permet d’analyser des données municipales sur des élus, et ce pour des communes ou des départements choisis. Pour ce faire, nous retrouvons des fonctions telles que `summary.commune` ou
 `summary.departement`. Cette librarie permet également de générer un rapport Quarto, avec la fonction `generer_rapport`.
 
@@ -41,10 +40,10 @@ str(donnees_elus)
 names(donnees_elus)
 
 # Création du dataframe de la commune de Nantes
-df_Nantes <- donnees_elus[donnees_elus$Libellé.de.la.commune == "Nantes",]
+df_Nantes <- donnees_elus[donnees_elus$Libellé_de_la_commune == "Nantes",]
 
 # Création du dataframe du département de la Loire-Atlantique
-df_Loire_Atlantique <- donnees_elus[donnees_elus$Libellé.du.département == "Loire-Atlantique",]
+df_Loire_Atlantique <- donnees_elus[donnees_elus$Libellé_du_département == "Loire-Atlantique",]
 
 # Affectation des classes `commune` et `departement` respectives à chaque dataframe
 library(firstlib)
@@ -77,11 +76,12 @@ summary(df_Loire_Atlantique)
 
 # Générer un rapport
 
-Ensuite, avec la fonction `generer_rapport()`, il est possible de sortir un rapport Quarto au format `html`. Ce rapport détaillera...
+Ensuite, avec la fonction `generer_rapport()`, il est possible de sortir un rapport Quarto au format `html`. Ce rapport donnera des informations détaillées sur la commune et le département rentrés en paramètres. Par la suite, seront produit des graphique, l'un pour la commune et l'autre pour le département sélectionnés, montrant la répartition des élus au sein des codes professionnels.
+
+Pour procéder à cela, les fonctions `summary.departement()`, `summary.commune()`, `plot.departement()`, `plot.commune()`, `creer_departement` et `creer_commune` du package `firstlib` seront utilisées. En fonction de la classe du dataframe de la commune et du département, les résumés et graphiques sortant seront alors différents.
 
 Voici comment utiliser cette fonction : 
 
 ```{r}
 generer_rapport(commune = "44", departement = "44109", output = "rapport_nantes.html")
 ```
-
