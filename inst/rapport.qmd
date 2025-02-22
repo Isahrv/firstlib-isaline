@@ -9,45 +9,40 @@ params:
 output: html_document
 ---
 
-# 3
-## Installation de firstlib
-```{r}
+# Installation de firstlib
+
+```{r, echo = FALSE}
 #remotes::install_github("Isahrv/firstlib-isaline")
+```
+
+# Chargement du package et import des données
+
+```{r}
 library(firstlib)
+df <- firstlib::donnees_elus
 ```
 
-## Import des données
+# Récupération des paramètres
+
 ```{r}
-library(readr)
-df <- read.table("~/cours/M1 ECAP/S2/R avancé & Git/data/elus-conseillers-municipaux-cm.csv", header = TRUE, sep = ";", quote = "")
-df_Nantes <- df[df$Libellé.de.la.commune == "Nantes",]
-df_Loire_Atlantique <- df[df$Libellé.du.département == "Loire-Atlantique",]
+code_commune <- params$code_commune
+code_departement <- params$code_departement
 ```
 
-## Test fonctions génériques pour commune
+# Application des fonctions à la commune
+
 ```{r}
-# ajout de la class
-df_Nantes <- creer_commune(df_Nantes)
-
-# vérification
-print(class(df_Nantes))
-
-# tests fonctions génériques
-summary(df_Nantes)
-plot(df_Nantes)
+df_commune <- df[df$Code_de_la_commune == code_commune,]
+commune_objet <- creer_commune(df_commune)
+summary(commune_objet)
+plot(commune_objet)
 ```
 
-## Test fonctions génériques pour departement
+# Application des fonctions au département
+
 ```{r}
-# ajout de la class
-df_Loire_Atlantique <- creer_departement(df_Loire_Atlantique)
-
-# vérification
-print(class(df_Loire_Atlantique))
-
-# tests fonctions génériques
-summary(df_Loire_Atlantique)
-plot(df_Loire_Atlantique)
+df_departement <- df[df$Code_du_département == code_departement,]
+departement_objet <- creer_departement(df_departement)
+summary(departement_objet)
+plot(departement_objet)
 ```
-
-# 4
