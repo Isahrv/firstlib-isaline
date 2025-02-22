@@ -87,82 +87,6 @@
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Chargement des données municipales disponibles sur le package</span></span>
 <span><span class="va">donnees_elus</span> <span class="op">&lt;-</span> <span class="fu">firstlib</span><span class="fu">::</span><span class="va"><a href="../reference/donnees_elus.html">donnees_elus</a></span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">donnees_elus</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html" class="external-link">make.names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">donnees_elus</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">donnees_elus</span><span class="op">)</span></span>
-<span><span class="co">#&gt; spc_tbl_ [489,972 × 16] (S3: spec_tbl_df/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">#&gt;  $ Code_du_département                            : chr [1:489972] "1" "1" "1" "1" ...</span></span>
-<span><span class="co">#&gt;  $ Libellé_du_département                         : chr [1:489972] "Ain" "Ain" "Ain" "Ain" ...</span></span>
-<span><span class="co">#&gt;  $ Code_de_la_collectivité_à_statut_particulier   : num [1:489972] NA NA NA NA NA NA NA NA NA NA ...</span></span>
-<span><span class="co">#&gt;  $ Libellé_de_la_collectivité_à_statut_particulier: chr [1:489972] NA NA NA NA ...</span></span>
-<span><span class="co">#&gt;  $ Code_de_la_commune                             : chr [1:489972] "1001" "1001" "1001" "1001" ...</span></span>
-<span><span class="co">#&gt;  $ Libellé_de_la_commune                          : chr [1:489972] "L'Abergement-Clémenciat" "L'Abergement-Clémenciat" "L'Abergement-Clémenciat" "L'Abergement-Clémenciat" ...</span></span>
-<span><span class="co">#&gt;  $ Nom_de_l_élu                                   : chr [1:489972] "BEAUDET" "BERAUD" "BOUILLOUX" "BOULON" ...</span></span>
-<span><span class="co">#&gt;  $ Prénom_de_l_élu                                : chr [1:489972] "Sylvie" "Zélie" "Delphine" "Daniel" ...</span></span>
-<span><span class="co">#&gt;  $ Code_sexe                                      : chr [1:489972] "F" "F" "F" "M" ...</span></span>
-<span><span class="co">#&gt;  $ Date_de_naissance                              : chr [1:489972] "25/03/1967" "26/03/1980" "02/08/1977" "04/03/1951" ...</span></span>
-<span><span class="co">#&gt;  $ Code_de_la_catégorie_socio_professionnelle     : num [1:489972] 12 43 38 74 71 43 63 33 75 11 ...</span></span>
-<span><span class="co">#&gt;  $ Libellé_de_la_catégorie_socio_professionnelle  : chr [1:489972] "Agriculteur sur moyenne exploitation" "Profession intermédiaire de la santé et du travail social" "Ingénieur et cadre technique d'entreprise" "Ancien cadre" ...</span></span>
-<span><span class="co">#&gt;  $ Date_de_début_du_mandat                        : chr [1:489972] "18/05/2020" "18/05/2020" "18/05/2020" "18/05/2020" ...</span></span>
-<span><span class="co">#&gt;  $ Libellé_de_la_fonction                         : chr [1:489972] NA NA NA "Maire" ...</span></span>
-<span><span class="co">#&gt;  $ Date_de_début_de_la_fonction                   : chr [1:489972] NA NA NA "26/05/2020" ...</span></span>
-<span><span class="co">#&gt;  $ Code_nationalité                               : chr [1:489972] "FR" "FR" "FR" "FR" ...</span></span>
-<span><span class="co">#&gt;  - attr(*, "spec")=List of 3</span></span>
-<span><span class="co">#&gt;   ..$ cols   :List of 16</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_du_département                            : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Libellé_du_département                         : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_de_la_collectivité_à_statut_particulier   : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Libellé_de_la_collectivité_à_statut_particulier: list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_de_la_commune                             : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Libellé_de_la_commune                          : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Nom_de_l_élu                                   : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Prénom_de_l_élu                                : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_sexe                                      : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Date_de_naissance                              : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_de_la_catégorie_socio_professionnelle     : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Libellé_de_la_catégorie_socio_professionnelle  : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Date_de_début_du_mandat                        : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Libellé_de_la_fonction                         : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Date_de_début_de_la_fonction                   : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   .. ..$ Code_nationalité                               : list()</span></span>
-<span><span class="co">#&gt;   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"</span></span>
-<span><span class="co">#&gt;   ..$ default: list()</span></span>
-<span><span class="co">#&gt;   .. ..- attr(*, "class")= chr [1:2] "collector_guess" "collector"</span></span>
-<span><span class="co">#&gt;   ..$ delim  : chr "\t"</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "class")= chr "col_spec"</span></span>
-<span><span class="co">#&gt;  - attr(*, "problems")=&lt;externalptr&gt;</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">donnees_elus</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "Code_du_département"                            </span></span>
-<span><span class="co">#&gt;  [2] "Libellé_du_département"                         </span></span>
-<span><span class="co">#&gt;  [3] "Code_de_la_collectivité_à_statut_particulier"   </span></span>
-<span><span class="co">#&gt;  [4] "Libellé_de_la_collectivité_à_statut_particulier"</span></span>
-<span><span class="co">#&gt;  [5] "Code_de_la_commune"                             </span></span>
-<span><span class="co">#&gt;  [6] "Libellé_de_la_commune"                          </span></span>
-<span><span class="co">#&gt;  [7] "Nom_de_l_élu"                                   </span></span>
-<span><span class="co">#&gt;  [8] "Prénom_de_l_élu"                                </span></span>
-<span><span class="co">#&gt;  [9] "Code_sexe"                                      </span></span>
-<span><span class="co">#&gt; [10] "Date_de_naissance"                              </span></span>
-<span><span class="co">#&gt; [11] "Code_de_la_catégorie_socio_professionnelle"     </span></span>
-<span><span class="co">#&gt; [12] "Libellé_de_la_catégorie_socio_professionnelle"  </span></span>
-<span><span class="co">#&gt; [13] "Date_de_début_du_mandat"                        </span></span>
-<span><span class="co">#&gt; [14] "Libellé_de_la_fonction"                         </span></span>
-<span><span class="co">#&gt; [15] "Date_de_début_de_la_fonction"                   </span></span>
-<span><span class="co">#&gt; [16] "Code_nationalité"</span></span>
 <span></span>
 <span><span class="co"># Création du dataframe de la commune de Nantes</span></span>
 <span><span class="va">df_Nantes</span> <span class="op">&lt;-</span> <span class="va">donnees_elus</span><span class="op">[</span><span class="va">donnees_elus</span><span class="op">$</span><span class="va">Libellé_de_la_commune</span> <span class="op">==</span> <span class="st">"Nantes"</span>,<span class="op">]</span></span>
@@ -193,7 +117,7 @@
 <span><span class="co">#&gt; #   Prénom_de_l_élu &lt;chr&gt;, Code_sexe &lt;chr&gt;, Date_de_naissance &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   Code_de_la_catégorie_socio_professionnelle &lt;dbl&gt;,</span></span>
 <span><span class="co">#&gt; #   Libellé_de_la_catégorie_socio_professionnelle &lt;chr&gt;, …</span></span>
-<span><span class="fu"><a href="../reference/creer_commune.html">creer_commune</a></span><span class="op">(</span><span class="va">df_Loire_Atlantique</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/creer_departement.html">creer_departement</a></span><span class="op">(</span><span class="va">df_Loire_Atlantique</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 8,123 × 16</span></span>
 <span><span class="co">#&gt;    Code_du_département Libellé_du_département Code_de_la_collectivité_à_statut…¹</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;                                               &lt;dbl&gt;</span></span>
@@ -371,7 +295,7 @@
 <span><span class="co">#&gt; 11/11                  </span></span>
 <span><span class="co">#&gt; [31moutput file: rapport.knit.md</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [39m[1mpandoc --output ../../../../../../tmp/Rtmpymxoyu/pkgdown-quarto-1d8932af4057/rapport_nantes.html[22m</span></span>
+<span><span class="co">#&gt; [39m[1mpandoc --output ../../../../../../tmp/RtmpVevqMl/pkgdown-quarto-1d3464f30d6/rapport_nantes.html[22m</span></span>
 <span><span class="co">#&gt;   to: html</span></span>
 <span><span class="co">#&gt;   standalone: true</span></span>
 <span><span class="co">#&gt;   section-divs: true</span></span>
@@ -388,7 +312,7 @@
 <span><span class="co">#&gt;   editor: visual</span></span>
 <span><span class="co">#&gt;   author: Isaline Hervé</span></span>
 <span><span class="co">#&gt;   </span></span>
-<span><span class="co">#&gt; Output created: ../../../../../../tmp/Rtmpymxoyu/pkgdown-quarto-1d8932af4057/rapport_nantes.html</span></span>
+<span><span class="co">#&gt; Output created: ../../../../../../tmp/RtmpVevqMl/pkgdown-quarto-1d3464f30d6/rapport_nantes.html</span></span>
 <span><span class="co">#&gt; Le rapport a bien été généré : rapport_nantes.html</span></span></code></pre></div>
 </div>
 </section><script id="quarto-html-after-body" type="application/javascript">
