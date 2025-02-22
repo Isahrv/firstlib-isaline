@@ -17,7 +17,7 @@ output: html_document
 
 # Chargement du package et import des données
 
-```{r}
+```{r, echo = TRUE, results = "hide"}
 library(firstlib)
 df <- firstlib::donnees_elus
 ```
