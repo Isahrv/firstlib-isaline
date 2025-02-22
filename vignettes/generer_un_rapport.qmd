@@ -34,10 +34,6 @@ Le package `firstlib` permet d’analyser des données municipales sur des élus
 ```{r}
 # Chargement des données municipales disponibles sur le package
 donnees_elus <- firstlib::donnees_elus
-colnames(donnees_elus) <- make.names(colnames(donnees_elus))
-
-str(donnees_elus)
-names(donnees_elus)
 
 # Création du dataframe de la commune de Nantes
 df_Nantes <- donnees_elus[donnees_elus$Libellé_de_la_commune == "Nantes",]
@@ -48,7 +44,7 @@ df_Loire_Atlantique <- donnees_elus[donnees_elus$Libellé_du_département == "Lo
 # Affectation des classes `commune` et `departement` respectives à chaque dataframe
 library(firstlib)
 creer_commune(df_Nantes)
-creer_commune(df_Loire_Atlantique)
+creer_departement(df_Loire_Atlantique)
 ```
 
 # Résumé des communes et départements

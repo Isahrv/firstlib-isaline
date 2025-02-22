@@ -23,7 +23,7 @@ Un résumé des données, selon la classe de \code{df}
 
 Un résumé d'information sur une commune, avec le libellé de la commune, le nombre d'élus, la distribution de l'âge des élus, des informations sur l'élu le/la plus agé.e
 
-Un résumé d'information sur un département, avec le libellé du département, le nombre de commune, le nombre d'élus, la distribution de l'âge des élus, des informations sur l'élu le/la plus agé.e et l'élu le/la plus jeune, leur commune, le nom de la commune avec la moyenne d'âge la plus faible et avec la moyenne d'âge la plus élevée, la distribution des âges pour ces communes
+Un résumé des informations sur un département.
 }
 \description{
 Fonction générique qui retourne un résumé d'informations différent selon la classe du dataframe.
