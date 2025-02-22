@@ -2,8 +2,7 @@
 #'
 #' @description Tableau contenant les élus des communes françaises
 #'
-#' @format
-#' Un data frame avec 489 972 lignes et 16 colonnes:
+#' @format Un data frame avec 489 972 lignes et 16 colonnes :
 #' \describe{
 #'   \item{Code_du_département}{code du département}
 #'   \item{Libellé_du_département}{nom du département}
@@ -22,9 +21,11 @@
 #'   \item{Date_de_début_de_la_fonction}{date de début de la fonction au format "jj/mm/aaaa"}
 #'   \item{Code_nationalité}{code indiquant la nationalité de l'élu ("FR" s'il est français)}
 #' }
-#' @source https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a
+#'
+#' @source [Répertoire National des Élus](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a)
 #'
 #' @usage data(donnees_elus)
-#'
 #' @keywords datasets
-"donnees_elus"
+#' @docType data
+#' @name donnees_elus
+NULL
