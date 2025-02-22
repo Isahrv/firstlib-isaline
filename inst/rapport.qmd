@@ -11,13 +11,13 @@ output: html_document
 
 # Installation de firstlib
 
-```{r, echo = TRUE, results = "hide"}
+```{r, echo = TRUE, results = "hide", message = FALSE, warning = FALSE}
 remotes::install_github("Isahrv/firstlib-isaline")
 ```
 
 # Chargement du package et import des données
 
-```{r, echo = TRUE, results = "hide"}
+```{r, echo = TRUE, results = "hide", message = FALSE, warning = FALSE}
 library(firstlib)
 df <- firstlib::donnees_elus
 ```
