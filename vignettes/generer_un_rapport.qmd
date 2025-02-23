@@ -18,7 +18,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+# Installation et chargement du package
+
+```{r setup, echo = TRUE, results = "hide", message = FALSE, warning = FALSE}
 remotes::install_github("Isahrv/firstlib-isaline")
 library(firstlib)
 ```
@@ -80,3 +82,4 @@ Voici comment utiliser cette fonction :
 ```{r}
 generer_rapport(commune = "44109", departement = "44", output = "rapport_nantes.html")
 ```
+
