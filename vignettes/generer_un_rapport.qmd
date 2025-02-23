@@ -1,10 +1,8 @@
 ---
 title: "Générer un rapport d'analyses"
-output: rmarkdown::html_vignette
-format: 
-  html:
-    toc: true
-    html-math-method: mathjax
+format: html
+toc: true
+html-math-method: mathjax
 vignette: >
   %\VignetteIndexEntry{Générer un rapport d'analyses}
   %\VignetteEngine{quarto::html}
@@ -43,8 +41,8 @@ df_Loire_Atlantique <- donnees_elus[donnees_elus$Libellé_du_département == "Lo
 
 # Affectation des classes `commune` et `departement` respectives à chaque dataframe
 library(firstlib)
-creer_commune(df_Nantes)
-creer_departement(df_Loire_Atlantique)
+df_Nantes <- creer_commune(df_Nantes)
+df_Loire_Atlantique <- creer_departement(df_Loire_Atlantique)
 ```
 
 # Résumé des communes et départements
