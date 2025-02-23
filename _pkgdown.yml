@@ -1,6 +1,3 @@
 url: https://isahrv.github.io/firstlib-isaline/
 template:
   bootstrap: 5
-home:
-  title: "firstlib: Pour une analyse de données sur des élus municipaux"
-  description: "Ce package R permet d'observer et d'exploiter les informations sur les élus municipaux des différentes villes et département de France."
