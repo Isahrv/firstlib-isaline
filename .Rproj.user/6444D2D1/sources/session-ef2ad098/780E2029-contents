@@ -1,0 +1,33 @@
+url: https://isahrv.github.io/firstlib-isaline/
+template:
+  bootstrap: 5
+  bootswatch: litera
+  light-switch: true
+  theme: github-light
+  theme-dark: github-dark
+
+  bslib:
+    base_font:
+      google: "Raleway"
+    heading_font:
+      google: "Noto Sans"
+    code_font:
+      google: "Inconsolata"
+
+navbar:
+  structure:
+    left:  [home, reference, articles]
+    right: [search, github]
+  components:
+    home:
+      text: "Accueil"
+      href: index.html
+    reference:
+      text: "Référence"
+      href: reference/index.html
+    articles:
+      text: "Articles"
+      href: articles/index.html
+    github:
+      icon: fa-github
+      href: https://github.com/Isahrv/firstlib-isaline
