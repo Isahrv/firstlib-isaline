@@ -1,0 +1,9 @@
+pandoc: '3.2'
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  generer_un_rapport: generer_un_rapport.html
+last_built: 2025-02-24T12:15Z
+urls:
+  reference: https://isahrv.github.io/firstlib-isaline/reference
+  article: https://isahrv.github.io/firstlib-isaline/articles
