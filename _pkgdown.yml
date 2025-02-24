@@ -13,21 +13,3 @@ template:
       google: "Noto Sans"
     code_font:
       google: "Inconsolata"
-
-navbar:
-  structure:
-    left:  [home, reference, articles]
-    right: [search, github]
-  components:
-    home:
-      text: "Accueil"
-      href: index.html
-    reference:
-      text: "Référence"
-      href: reference/index.html
-    articles:
-      text: "Articles"
-      href: articles/index.html
-    github:
-      icon: fa-github
-      href: https://github.com/Isahrv/firstlib-isaline
