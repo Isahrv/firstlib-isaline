@@ -5,7 +5,6 @@ template:
   light-switch: true
   theme: github-light
   theme-dark: github-dark
-
   bslib:
     base_font:
       google: "Raleway"

@@ -1,4 +1,4 @@
-# firstlib-isaline
+# firstlib
 
 ## firstlib: pour analyser des élus municipaux
 Un package R pour observer et exploiter les caractéristiques et informations sur les élus municipaux en France.
