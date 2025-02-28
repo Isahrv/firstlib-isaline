@@ -1,0 +1,48 @@
+---
+title: "rapport"
+format: html
+editor: visual
+author: Isaline Hervé
+params:
+  code_commune: "44109"
+  code_departement: "44"
+output: html_document
+---
+
+# Installation de firstlib
+
+```{r, echo = TRUE, results = "hide", message = FALSE, warning = FALSE}
+remotes::install_github("Isahrv/firstlib-isaline")
+```
+
+# Chargement du package et import des données
+
+```{r, echo = TRUE, results = "hide", message = FALSE, warning = FALSE}
+library(firstlib)
+df <- firstlib::donnees_elus
+```
+
+# Récupération des paramètres
+
+```{r}
+code_commune <- params$code_commune
+code_departement <- params$code_departement
+```
+
+# Application des fonctions à la commune
+
+```{r}
+df_commune <- df[df$Code_de_la_commune == code_commune,]
+commune_objet <- creer_commune(df_commune)
+summary(commune_objet)
+plot(commune_objet)
+```
+
+# Application des fonctions au département
+
+```{r}
+df_departement <- df[df$Code_du_département == code_departement,]
+departement_objet <- creer_departement(df_departement)
+summary(departement_objet)
+plot(departement_objet)
+```
